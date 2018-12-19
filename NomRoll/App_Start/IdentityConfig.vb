@@ -5,6 +5,7 @@ Imports Microsoft.AspNet.Identity.EntityFramework
 Imports Microsoft.AspNet.Identity.Owin
 Imports Microsoft.Owin
 Imports Microsoft.Owin.Security
+' Imports MySql.AspNet.Identity
 
 Public Class EmailService
     Implements IIdentityMessageService

@@ -31,7 +31,8 @@ Partial Public Class Login
 
             Select Case result
                 Case SignInStatus.Success
-                    IdentityHelper.RedirectToReturnUrl(Request.QueryString("ReturnUrl"), Response)
+                    'IdentityHelper.RedirectToReturnUrl(Request.QueryString("ReturnUrl"), Response)
+                    Response.Redirect("~/Aspx/NomRoll/NominalRoll")
                     Exit Select
                 Case SignInStatus.LockedOut
                     Response.Redirect("/Account/Lockout")

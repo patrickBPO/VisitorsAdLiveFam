@@ -71,12 +71,23 @@ Partial Public Class Manage
 
         If Not IsPostBack Then
             ' Determine the sections to render
-            If HasPassword(manager) Then
-              ChangePassword.Visible = True
+            If Context.User.Identity.Name.Equals("admin@kolbe.bz") Or Context.User.Identity.Name.Equals("fhower@kolbe.bz") Then
+                If HasPassword(manager) Then
+                    ChangePassword.Visible = True
+                Else
+                    CreatePassword.Visible = True
+                    ChangePassword.Visible = False
+                End If
             Else
-              CreatePassword.Visible = True
-              ChangePassword.Visible = False
+                Response.Redirect("~/Aspx/ErrorHandle/UnAuth")
             End If
+
+            'If HasPassword(manager) Then
+            '  ChangePassword.Visible = True
+            'Else
+            '  CreatePassword.Visible = True
+            '  ChangePassword.Visible = False
+            'End If
 
             ' Render success message
             Dim message = Request.QueryString("m")

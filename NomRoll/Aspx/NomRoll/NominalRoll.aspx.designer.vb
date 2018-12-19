@@ -11,68 +11,77 @@ Option Strict On
 Option Explicit On
 
 
-Partial Public Class Login
+Partial Public Class NominalRoll
     
     '''<summary>
-    '''ErrorMessage control.
+    '''Table1 control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents ErrorMessage As Global.System.Web.UI.WebControls.PlaceHolder
+    Protected WithEvents Table1 As Global.System.Web.UI.WebControls.Table
     
     '''<summary>
-    '''FailureText control.
+    '''NomRollGV control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents FailureText As Global.System.Web.UI.WebControls.Literal
+    Protected WithEvents NomRollGV As Global.DevExpress.Web.ASPxGridView
     
     '''<summary>
-    '''Email control.
+    '''NominalRollDS control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Email As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents NominalRollDS As Global.System.Web.UI.WebControls.SqlDataSource
     
     '''<summary>
-    '''Password control.
+    '''CountryDS control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents Password As Global.System.Web.UI.WebControls.TextBox
+    Protected WithEvents CountryDS As Global.System.Web.UI.WebControls.SqlDataSource
     
     '''<summary>
-    '''RememberMe control.
+    '''EthnicDS control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RememberMe As Global.System.Web.UI.WebControls.CheckBox
+    Protected WithEvents EthnicDS As Global.System.Web.UI.WebControls.SqlDataSource
     
     '''<summary>
-    '''RegisterHyperLink control.
+    '''GenderDS control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents RegisterHyperLink As Global.System.Web.UI.WebControls.HyperLink
+    Protected WithEvents GenderDS As Global.System.Web.UI.WebControls.SqlDataSource
     
     '''<summary>
-    '''OpenAuthLogin control.
+    '''LocationDS control.
     '''</summary>
     '''<remarks>
     '''Auto-generated field.
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
-    Protected WithEvents OpenAuthLogin As Global.NomRoll.OpenAuthProviders
+    Protected WithEvents LocationDS As Global.System.Web.UI.WebControls.SqlDataSource
+    
+    '''<summary>
+    '''CStatusDS control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents CStatusDS As Global.System.Web.UI.WebControls.SqlDataSource
 End Class
