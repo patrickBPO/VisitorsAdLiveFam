@@ -243,6 +243,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
+    <Content Include="Content\Web.config" />
     <None Include="My Project\PublishProfiles\FolderProfile.pubxml" />
     <None Include="My Project\PublishProfiles\NomRoll.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />

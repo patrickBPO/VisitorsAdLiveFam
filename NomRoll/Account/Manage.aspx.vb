@@ -57,7 +57,7 @@ Partial Public Class Manage
 
     Protected Sub Page_Load() Handles Me.Load
         Dim manager = Context.GetOwinContext().GetUserManager(Of ApplicationUserManager)()
-
+        Page.Title = "Custody Control System"
         HasPhoneNumber = String.IsNullOrEmpty(manager.GetPhoneNumber(User.Identity.GetUserId()))
 
         ' Enable this after setting up two-factor authentientication

@@ -1,5 +1,6 @@
 ﻿Imports Microsoft.AspNet.Identity
 
+
 Public Class SiteMaster
     Inherits MasterPage
     Private Const AntiXsrfTokenKey As String = "__AntiXsrfToken"
