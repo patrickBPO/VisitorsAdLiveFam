@@ -49,8 +49,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Data.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.RichEdit.v17.1.Core, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.ASPxThemes.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.Bootstrap.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Web.Resources.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.Web.v17.1, Version=17.1.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="Google.Protobuf, Version=3.5.1.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>..\packages\Google.Protobuf.3.5.1\lib\net45\Google.Protobuf.dll</HintPath>
@@ -223,7 +226,12 @@
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
     <Content Include="Aspx\AppName.aspx" />
+    <Content Include="Aspx\ErrorHandle\UnExpected.aspx" />
     <Content Include="Aspx\ErrorHandle\UnAuth.aspx" />
+    <Content Include="Aspx\VisitorAd\VisitorView.aspx" />
+    <Content Include="Aspx\VisitorAp\VisitorViewAp.aspx" />
+    <Content Include="Aspx\VisitorSb\VisitorViewSb.aspx" />
+    <Content Include="Aspx\VisitorV\VisitorViewV.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -244,8 +252,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <Content Include="Content\Web.config" />
+    <Content Include="Aspx\VisitorAd\Web.config" />
+    <Content Include="Aspx\VisitorSb\Web.config" />
     <None Include="My Project\PublishProfiles\FolderProfile.pubxml" />
-    <None Include="My Project\PublishProfiles\NomRoll.pubxml" />
+    <None Include="My Project\PublishProfiles\VisitorsAdLive.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Aspx\NomRoll\NominalRoll.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -405,12 +415,47 @@
       <DependentUpon>AppName.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Aspx\ErrorHandle\UnExpected.aspx.designer.vb">
+      <DependentUpon>UnExpected.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\ErrorHandle\UnExpected.aspx.vb">
+      <DependentUpon>UnExpected.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
     <Compile Include="Aspx\ErrorHandle\UnAuth.aspx.designer.vb">
       <DependentUpon>UnAuth.aspx</DependentUpon>
     </Compile>
     <Compile Include="Aspx\ErrorHandle\UnAuth.aspx.vb">
       <DependentUpon>UnAuth.aspx</DependentUpon>
       <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\VisitorAd\VisitorView.aspx.designer.vb">
+      <DependentUpon>VisitorView.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\VisitorAd\VisitorView.aspx.vb">
+      <DependentUpon>VisitorView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\VisitorAp\VisitorViewAp.aspx.designer.vb">
+      <DependentUpon>VisitorViewAp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\VisitorAp\VisitorViewAp.aspx.vb">
+      <DependentUpon>VisitorViewAp.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\VisitorSb\VisitorViewSb.aspx.designer.vb">
+      <DependentUpon>VisitorViewSb.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\VisitorSb\VisitorViewSb.aspx.vb">
+      <DependentUpon>VisitorViewSb.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Aspx\VisitorV\VisitorViewV.aspx.designer.vb">
+      <DependentUpon>VisitorViewV.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Aspx\VisitorV\VisitorViewV.aspx.vb">
+      <DependentUpon>VisitorViewV.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.vb">
       <DependentUpon>Contact.aspx</DependentUpon>
@@ -480,6 +525,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>

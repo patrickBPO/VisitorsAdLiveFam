@@ -20,6 +20,7 @@ Partial Public Class Login
     End Sub
 
     Protected Sub LogIn(sender As Object, e As EventArgs)
+
         If IsValid Then
             ' Validate the user password
             Dim manager = Context.GetOwinContext().GetUserManager(Of ApplicationUserManager)()
@@ -27,12 +28,24 @@ Partial Public Class Login
 
             ' This doen't count login failures towards account lockout
             ' To enable password failures to trigger lockout, change to shouldLockout := True
-            Dim result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout := False)
+            Dim result = signinManager.PasswordSignIn(Email.Text, Password.Text, RememberMe.Checked, shouldLockout:=False)
 
             Select Case result
                 Case SignInStatus.Success
                     'IdentityHelper.RedirectToReturnUrl(Request.QueryString("ReturnUrl"), Response)
-                    Response.Redirect("~/Aspx/NomRoll/NominalRoll")
+                    ' Determine the sections to render
+                    If (Email.Text = "admin@kolbe.bz" _
+                            Or Email.Text = "fhower@kolbe.bz") Then
+                        Response.Redirect("~/Aspx/VisitorAd/VisitorView") '<-- Administrator Console
+                    Else
+                        If (Email.Text = "vadmin@kolbe.bz") Then
+                            Response.Redirect("~/Aspx/VisitorAp/VisitorViewAp") '<-- Approval Console
+                        Else
+                            'Response.Redirect("~/Aspx/ErrorHandle/UnAuth")
+                            Response.Redirect("~/Aspx/VisitorSb/VisitorViewSb") '<-- Submission Console
+                        End If
+                    End If
+                    'Response.Redirect("~/Aspx/VisitorAd/VisitorView")
                     Exit Select
                 Case SignInStatus.LockedOut
                     Response.Redirect("/Account/Lockout")
