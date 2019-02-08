@@ -252,8 +252,10 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="Account\Web.config" />
     <Content Include="Content\Web.config" />
-    <Content Include="Aspx\VisitorAd\Web.config" />
-    <Content Include="Aspx\VisitorSb\Web.config" />
+    <Content Include="Aspx\VisitorAd\web.config" />
+    <Content Include="Aspx\VisitorSb\web.config" />
+    <Content Include="Aspx\VisitorAp\web.config" />
+    <Content Include="Aspx\VisitorV\web.config" />
     <None Include="My Project\PublishProfiles\FolderProfile.pubxml" />
     <None Include="My Project\PublishProfiles\VisitorsAdLive.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
