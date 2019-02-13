@@ -18,7 +18,7 @@
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
-<body>
+<body style="background-color: #C0C0C0">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -39,7 +39,6 @@
                 <%--Site Scripts--%>
             </Scripts>
         </asp:ScriptManager>
-
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -52,13 +51,13 @@
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <% if(Context.User.Identity.Name.Equals("admin@kolbe.bz") Or Context.User.Identity.Name.Equals("fhower@kolbe.bz"))%>
+                        <% if(Context.User.Identity.Name.Equals("admin@kolbe.bz") Or Context.User.Identity.Name.Equals("fhower@kolbe.bz")) Then%>
                         <li><a runat="server" href="~/Aspx/VisitorAd/VisitorView">Visitor Admin</a></li>
                        <%  End if%>
                         <li><a runat="server" href="~/Aspx/VisitorSb/VisitorViewSb">Submit Visitor List</a></li>
                         <% if(Context.User.Identity.Name.Equals("admin@kolbe.bz") _
-                   Or Context.User.Identity.Name.Equals("fhower@kolbe.bz") _
-                   Or Context.User.Identity.Name.Equals("vadmin@kolbe.bz"))%>
+                                                                                                                                      Or Context.User.Identity.Name.Equals("fhower@kolbe.bz") _
+                                                                                                                                      Or Context.User.Identity.Name.Equals("vadmin@kolbe.bz"))Then%>
                         <li><a runat="server" href="~/Aspx/VisitorAp/VisitorViewAp">Visitor Approval</a></li>
                        <%  End if%>
                         <li><a runat="server" href="~/Aspx/VisitorV/VisitorViewV">Visitor Lookup</a></li>
@@ -84,6 +83,13 @@
                     </asp:LoginView>
                 </div>
             </div>
+        </div>
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <header>
+                <p style="font-size: large; font-weight: normal; color: #808080; font-style: oblique; ">Kolbe Foundation - <%: Page.Title %></p>
+            </header>
         </div>
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">

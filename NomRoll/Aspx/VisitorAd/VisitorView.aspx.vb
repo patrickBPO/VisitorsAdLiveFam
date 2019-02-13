@@ -10,7 +10,17 @@ Public Class VisitorView
     Dim VStageID As Int16
     Dim EInt As Boolean
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+        If Application("ACloseAllRV") = True Then
+            ChkAllRV.Checked = True
+        Else
+            ChkAllRV.Checked = False
+        End If
 
+        If Application("ACloseAllFD") = True Then
+            ChkAllFV.Checked = True
+        Else
+            ChkAllFV.Checked = False
+        End If
         'If Not IsPostBack Then
         '    VisViewerGV.DataBind()
         '    VisViewerGV.DetailRows.ExpandRow(0)
@@ -45,6 +55,7 @@ Public Class VisitorView
         Session("inmate_sys_id") = (TryCast(sender, ASPxGridView)).GetMasterRowKeyValue()
         'Call FindThisChkVal()
         VStageID = Session("inmate_id")
+
     End Sub
 
     Protected Sub ASPxGridView2_ParseValue(sender As Object, e As ASPxParseValueEventArgs)

@@ -5,7 +5,7 @@
     
     <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <div class="jumbotron">
-            <h1 class="centered">Visitor List Administration</h1>
+            <h1>Visitor List Administration</h1>
         </div>
         <div class="row">
             <table style="width: 100%;">
@@ -48,7 +48,7 @@
                                         &nbsp;</td>
                                 </tr>
                             </table>
-                                        <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="VisitorsDetailDS" EnableTheming="True" KeyFieldName="visitor_id" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" OnParseValue="ASPxGridView2_ParseValue" Theme="Aqua">
+                                        <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="VisitorsDetailDS" EnableTheming="True" KeyFieldName="visitor_id" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" OnParseValue="ASPxGridView2_ParseValue" Theme="PlasticBlue">
                                             <SettingsEditing Mode="Batch">
                                                 <BatchEditSettings EditMode="Row" />
                                             </SettingsEditing>
@@ -110,7 +110,7 @@
                                                 <dx:ASPxSummaryItem DisplayFormat="Total : {00}" FieldName="visitor_id" ShowInColumn="First Name" SummaryType="Count" />
                                             </GroupSummary>
                                             <Styles>
-                                                <FocusedRow BackColor="#CCFF99">
+                                                <FocusedRow BackColor="#006699" ForeColor="White">
                                                 </FocusedRow>
                                                 <Footer BackColor="#A6D2FF">
                                                 </Footer>
@@ -136,7 +136,7 @@
                                     <td>&nbsp;</td>
                                 </tr>
                             </table>
-                            <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" DataSourceID="FamilyDetailDS" EnableTheming="True" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Theme="Youthful" KeyFieldName="visitor_id" OnParseValue="ASPxGridView2_ParseValue">
+                            <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" DataSourceID="FamilyDetailDS" EnableTheming="True" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Theme="Office2003Olive" KeyFieldName="visitor_id" OnParseValue="ASPxGridView2_ParseValue">
                                 <SettingsEditing Mode="Batch">
                                     <BatchEditSettings EditMode="Row" />
                                 </SettingsEditing>
@@ -198,8 +198,6 @@
                                     <dx:ASPxSummaryItem DisplayFormat="Total : {00}" FieldName="visitor_id" ShowInColumn="First Name" SummaryType="Count" />
                                 </GroupSummary>
                                 <Styles>
-                                    <FocusedRow BackColor="Lime">
-                                    </FocusedRow>
                                     <Footer BackColor="#A6D2FF">
                                     </Footer>
                                 </Styles>

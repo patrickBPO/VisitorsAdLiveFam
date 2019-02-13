@@ -5,21 +5,22 @@
     
     <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <div class="jumbotron">
-            <h1 class="centered">Visitor List Approval</h1>
+            <h1 class="centered">Inmate Visitors Approval</h1>
         </div>
         <div class="row">
             <dx:ASPxGridView ID="VisViewerGV" runat="server" AutoGenerateColumns="False" DataSourceID="InmateVisitorViewDS" EnableTheming="True" KeyFieldName="inmate_id" Theme="BlackGlass" CssClass="centered">
-                    <SettingsDetail ShowDetailRow="True" />
+                    <SettingsDetail ShowDetailRow="True" AllowOnlyOneMasterRowExpanded="True" />
                     <Templates>
                         <DetailRow>
-                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Font-Bold="True" Font-Size="Large" Text="Regular Visitors">
+                            <dx:ASPxLabel ID="ASPxLabel2" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Regular Visitors">
                             </dx:ASPxLabel>
                             <br />
-                            <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" DataSourceID="VisitorsDetailDS" EnableTheming="True" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Theme="Aqua" KeyFieldName="visitor_id" OnParseValue="ASPxGridView2_ParseValue">
+                            <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" DataSourceID="VisitorsDetailDS" EnableTheming="True" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Theme="PlasticBlue" KeyFieldName="visitor_id" OnParseValue="ASPxGridView2_ParseValue" Width="553px">
                                 <SettingsEditing Mode="Batch">
                                     <BatchEditSettings EditMode="Row" />
                                 </SettingsEditing>
                                 <Settings ShowFooter="True" ShowGroupFooter="VisibleIfExpanded" />
+                                <SettingsBehavior AllowFocusedRow="True" />
                                 <Columns>
                                     <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
                                     </dx:GridViewCommandColumn>
@@ -62,7 +63,7 @@
                                         <CellStyle BackColor="#E7FCFE" ForeColor="#003399" Font-Bold="True">
                                         </CellStyle>
                                     </dx:GridViewDataComboBoxColumn>
-                                    <dx:GridViewDataComboBoxColumn Caption="Country" FieldName="country_id" VisibleIndex="8">
+                                    <dx:GridViewDataComboBoxColumn Caption="Country" FieldName="country_id" VisibleIndex="8" Width="100px">
                                         <PropertiesComboBox DataSourceID="CountryDS" TextField="c_name" ValueField="country_id">
                                         </PropertiesComboBox>
                                         <CellStyle BackColor="#E7FCFE" ForeColor="#003399">
@@ -76,16 +77,19 @@
                                     <dx:ASPxSummaryItem DisplayFormat="Total : {00}" FieldName="visitor_id" ShowInColumn="First Name" SummaryType="Count" />
                                 </GroupSummary>
                                 <Styles>
+                                    <FocusedRow BackColor="#006699" ForeColor="White">
+                                    </FocusedRow>
                                     <Footer BackColor="#A6D2FF">
                                     </Footer>
                                 </Styles>
                             </dx:ASPxGridView>
-                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Family Day Visitors" Font-Bold="True" Font-Size="Large"></dx:ASPxLabel>
-                            <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="FamilyDetailDS" EnableTheming="True" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Theme="Youthful" KeyFieldName="visitor_id" OnParseValue="ASPxGridView2_ParseValue">
+                            <dx:ASPxLabel ID="ASPxLabel1" runat="server" Text="Family Day Visitors" Font-Bold="True" Font-Size="X-Large"></dx:ASPxLabel>
+                            <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="FamilyDetailDS" EnableTheming="True" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Theme="Office2003Olive" KeyFieldName="visitor_id" OnParseValue="ASPxGridView2_ParseValue" Width="553px">
                                 <SettingsEditing Mode="Batch">
                                     <BatchEditSettings EditMode="Row" />
                                 </SettingsEditing>
                                 <Settings ShowFooter="True" ShowGroupFooter="VisibleIfExpanded" />
+                                <SettingsBehavior AllowFocusedRow="True" />
                                 <Columns>
                                     <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
                                     </dx:GridViewCommandColumn>
@@ -128,7 +132,7 @@
                                         <CellStyle BackColor="#E7FCFE" ForeColor="#003399" Font-Bold="True">
                                         </CellStyle>
                                     </dx:GridViewDataComboBoxColumn>
-                                    <dx:GridViewDataComboBoxColumn Caption="Country" FieldName="country_id" VisibleIndex="8">
+                                    <dx:GridViewDataComboBoxColumn Caption="Country" FieldName="country_id" VisibleIndex="8" Width="100px">
                                         <PropertiesComboBox DataSourceID="CountryDS" TextField="c_name" ValueField="country_id">
                                         </PropertiesComboBox>
                                         <CellStyle BackColor="#E7FCFE" ForeColor="#003399" Wrap="False">
@@ -151,7 +155,7 @@
                     <SettingsPager PageSize="20">
                     </SettingsPager>
                     <Settings ShowFooter="True" ShowGroupedColumns="True" ShowGroupFooter="VisibleAlways" ShowGroupPanel="True" />
-                    <SettingsBehavior AllowFixedGroups="True" />
+                    <SettingsBehavior AllowFixedGroups="True" AllowFocusedRow="True" ProcessFocusedRowChangedOnServer="True" />
                     <SettingsDataSecurity AllowDelete="False" AllowInsert="False" />
                     <SettingsSearchPanel Visible="True" />
                     <Columns>
@@ -193,6 +197,8 @@
                         <dx:ASPxSummaryItem DisplayFormat="Total : {00}" FieldName="location_parent_id" ShowInColumn="Location" ShowInGroupFooterColumn="Location" SummaryType="Count" Tag="Location" />
                     </GroupSummary>
                     <Styles>
+                        <FocusedRow BackColor="#3399FF" ForeColor="White">
+                        </FocusedRow>
                         <GroupFooter ForeColor="#0066FF">
                         </GroupFooter>
                     </Styles>

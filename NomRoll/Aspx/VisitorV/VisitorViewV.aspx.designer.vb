@@ -14,6 +14,15 @@ Option Explicit On
 Partial Public Class VisitorViewV
     
     '''<summary>
+    '''ASPxLabel3 control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents ASPxLabel3 As Global.DevExpress.Web.ASPxLabel
+    
+    '''<summary>
     '''VisViewerGV control.
     '''</summary>
     '''<remarks>
@@ -39,6 +48,15 @@ Partial Public Class VisitorViewV
     '''To modify move field declaration from designer file to code-behind file.
     '''</remarks>
     Protected WithEvents RelationDS As Global.System.Web.UI.WebControls.SqlDataSource
+    
+    '''<summary>
+    '''FamilyDetailDS control.
+    '''</summary>
+    '''<remarks>
+    '''Auto-generated field.
+    '''To modify move field declaration from designer file to code-behind file.
+    '''</remarks>
+    Protected WithEvents FamilyDetailDS As Global.System.Web.UI.WebControls.SqlDataSource
     
     '''<summary>
     '''CountryDS control.

@@ -37,24 +37,24 @@ Public Class VisitorViewAp
         Dim sndr As ASPxGridView = TryCast(sender, ASPxGridView)
         'sndr = sender
         Session("inmate_sys_id") = (TryCast(sender, ASPxGridView)).GetMasterRowKeyValue()
-        Select Case sndr.ID
-            Case "ASPxGridView2"
-                If Application("ACloseAllRV") = True Then
-                    sndr.Enabled = False
-                Else
-                    sndr.Enabled = True
-                End If
-                Exit Select
-            Case "ASPxGridView1"
-                If Application("ACloseAllFD") = True Then
-                    sndr.Enabled = False
-                Else
-                    sndr.Enabled = True
-                End If
+        'Select Case sndr.ID
+        '    Case "ASPxGridView2"
+        '        If Application("ACloseAllRV") = True Then
+        '            sndr.Enabled = False
+        '        Else
+        '            sndr.Enabled = True
+        '        End If
+        '        Exit Select
+        '    Case "ASPxGridView1"
+        '        If Application("ACloseAllFD") = True Then
+        '            sndr.Enabled = False
+        '        Else
+        '            sndr.Enabled = True
+        '        End If
 
-                Exit Select
+        '        Exit Select
 
-        End Select
+        'End Select
 
     End Sub
 
@@ -64,4 +64,11 @@ Public Class VisitorViewAp
         End If
     End Sub
 
+    Protected Sub VisViewerGV_FocusedRowChanged(sender As Object, e As EventArgs) Handles VisViewerGV.FocusedRowChanged
+        TryCast(sender, ASPxGridView).DetailRows.ExpandRow(VisViewerGV.FocusedRowIndex)
+    End Sub
+
+    Protected Sub VisViewerGV_DetailRowExpandedChanged(sender As Object, e As ASPxGridViewDetailRowEventArgs) Handles VisViewerGV.DetailRowExpandedChanged
+        VisViewerGV.FocusedRowIndex = Convert.ToInt16(e.VisibleIndex.ToString)
+    End Sub
 End Class

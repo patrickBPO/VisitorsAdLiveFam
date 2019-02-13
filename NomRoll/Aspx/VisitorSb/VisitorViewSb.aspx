@@ -5,16 +5,19 @@
     
     <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
         <div class="jumbotron">
-            <h1 class="centered">Submit Visitor List<dx:ASPxGridView ID="VisViewerGV" runat="server" AutoGenerateColumns="False" DataSourceID="InmateVisitorViewDS" EnableTheming="True" KeyFieldName="inmate_id" Theme="BlackGlass" CssClass="centered">
+            <h1 class="centered">Inmate Visitors Submission (<%: DateTime.Now.Year %>)</h1>
+        </div>
+            <dx:ASPxGridView ID="VisViewerGV" runat="server" AutoGenerateColumns="False" DataSourceID="InmateVisitorViewDS" EnableTheming="True" KeyFieldName="inmate_id" Theme="BlackGlass" CssClass="centered">
                 <SettingsDetail ShowDetailRow="True" AllowOnlyOneMasterRowExpanded="True" />
                 <Templates>
                     <DetailRow>
                         <dx:ASPxLabel ID="ASPxLabel2" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Regular Visitors">
                         </dx:ASPxLabel>
-                        <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" DataSourceID="VisitorsDetailDS" EnableTheming="True" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Theme="Aqua" KeyFieldName="visitor_id" OnParseValue="ASPxGridView2_ParseValue">
+                        <dx:ASPxGridView ID="ASPxGridView2" runat="server" AutoGenerateColumns="False" DataSourceID="VisitorsDetailDS" EnableTheming="True" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Theme="PlasticBlue" KeyFieldName="visitor_id" OnParseValue="ASPxGridView2_ParseValue" OnRowInserted="ASPxGridView2_RowInserted" OnRowUpdated="ASPxGridView2_RowUpdated" OnRowUpdating="ASPxGridView2_RowUpdating" Width="553px">
                             <SettingsEditing Mode="Batch">
                                 <BatchEditSettings EditMode="Row" />
                             </SettingsEditing>
+                            <SettingsBehavior AllowFocusedRow="True" />
                             <Columns>
                                 <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
                                 </dx:GridViewCommandColumn>
@@ -23,7 +26,7 @@
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="inmate_sys_id" VisibleIndex="2" Visible="False">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataCheckColumn FieldName="banned" VisibleIndex="9" Caption="Approved" ToolTip="Please check to approve the Visitor for final entry" ReadOnly="True">
+                                <dx:GridViewDataCheckColumn FieldName="banned" VisibleIndex="9" Caption="Approved" ToolTip="Please check to approve the Visitor for final entry" ReadOnly="True" Visible="False">
                                 </dx:GridViewDataCheckColumn>
                                 <dx:GridViewDataTextColumn Caption="First Name" FieldName="f_name" VisibleIndex="3">
                                 </dx:GridViewDataTextColumn>
@@ -57,21 +60,26 @@
                                     <CellStyle BackColor="#E7FCFE" ForeColor="#003399" Font-Bold="True">
                                     </CellStyle>
                                 </dx:GridViewDataComboBoxColumn>
-                                <dx:GridViewDataComboBoxColumn Caption="Country" FieldName="country_id" VisibleIndex="8">
+                                <dx:GridViewDataComboBoxColumn Caption="Country" FieldName="country_id" VisibleIndex="8" Width="100px">
                                     <PropertiesComboBox DataSourceID="CountryDS" TextField="c_name" ValueField="country_id">
                                     </PropertiesComboBox>
                                     <CellStyle BackColor="#E7FCFE" ForeColor="#003399">
                                     </CellStyle>
                                 </dx:GridViewDataComboBoxColumn>
                             </Columns>
+                            <Styles>
+                                <FocusedRow BackColor="#0066CC" ForeColor="White">
+                                </FocusedRow>
+                            </Styles>
                         </dx:ASPxGridView>
                         <dx:ASPxLabel ID="ASPxLabel1" runat="server" Font-Bold="True" Font-Size="X-Large" Text="Family Day Visitors">
                         </dx:ASPxLabel>
                         <br />
-                        <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="FamilyDetailDS" EnableTheming="True" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Theme="Youthful" KeyFieldName="visitor_id" OnParseValue="ASPxGridView2_ParseValue" Width="553px">
+                        <dx:ASPxGridView ID="ASPxGridView1" runat="server" AutoGenerateColumns="False" DataSourceID="FamilyDetailDS" EnableTheming="True" OnBeforePerformDataSelect="ASPxGridView2_BeforePerformDataSelect" Theme="Office2003Olive" KeyFieldName="visitor_id" OnParseValue="ASPxGridView2_ParseValue" Width="553px">
                             <SettingsEditing Mode="Batch">
                                 <BatchEditSettings EditMode="Row" />
                             </SettingsEditing>
+                            <SettingsBehavior AllowFocusedRow="True" />
                             <Columns>
                                 <dx:GridViewCommandColumn ShowDeleteButton="True" ShowEditButton="True" ShowNewButtonInHeader="True" VisibleIndex="0">
                                 </dx:GridViewCommandColumn>
@@ -80,7 +88,7 @@
                                 </dx:GridViewDataTextColumn>
                                 <dx:GridViewDataTextColumn FieldName="inmate_sys_id" VisibleIndex="2" Visible="False">
                                 </dx:GridViewDataTextColumn>
-                                <dx:GridViewDataCheckColumn FieldName="banned" VisibleIndex="9" Caption="Approved" ToolTip="Please check to approve the Visitor for final entry" ReadOnly="True">
+                                <dx:GridViewDataCheckColumn FieldName="banned" VisibleIndex="9" Caption="Approved" ToolTip="Please check to approve the Visitor for final entry" ReadOnly="True" Visible="False">
                                 </dx:GridViewDataCheckColumn>
                                 <dx:GridViewDataTextColumn Caption="First Name" FieldName="f_name" VisibleIndex="3">
                                 </dx:GridViewDataTextColumn>
@@ -124,6 +132,7 @@
                         </dx:ASPxGridView>
                     </DetailRow>
                 </Templates>
+                <SettingsBehavior AllowFocusedRow="True" ProcessFocusedRowChangedOnServer="True" />
                 <SettingsDataSecurity AllowDelete="False" AllowInsert="False" />
                 <SettingsSearchPanel Visible="True" />
                 <Columns>
@@ -161,9 +170,11 @@
                         </PropertiesComboBox>
                     </dx:GridViewDataComboBoxColumn>
                 </Columns>
+                <Styles>
+                    <FocusedRow BackColor="#3399FF" ForeColor="White">
+                    </FocusedRow>
+                </Styles>
                 </dx:ASPxGridView>
-            </h1>
-        </div>
         <div class="row">
 
             <asp:SqlDataSource ID="VisitorsDetailDS" runat="server" ConnectionString="<%$ ConnectionStrings:dbkolbeConn %>" ProviderName="<%$ ConnectionStrings:dbkolbeConn.ProviderName %>" SelectCommand="SELECT visitor_id, inmate_sys_id, v_photo, banned, relation_id, f_name, m_name, l_name, dob, sex, age, house_pbox, street, city, district_id, country_id, v_card_id, v_phone FROM vistor_stage WHERE (inmate_sys_id = @PrmID)" DeleteCommand="DELETE FROM vistor_stage WHERE visitor_id = ?" InsertCommand="INSERT INTO vistor_stage (visitor_id, inmate_sys_id, v_photo, banned, relation_id, f_name, m_name, l_name, dob, sex, age, house_pbox, street, city, district_id, country_id, v_card_id, v_phone) VALUES (?, ?, ?, IF(?='True',-1,0), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)" UpdateCommand="UPDATE vistor_stage SET inmate_sys_id = ?, v_photo = ?, banned = IF(?='True',-1,0)  , relation_id = ?, f_name = ?, m_name = ?, l_name = ?, dob = ?, sex = ?, age = ?, house_pbox = ?, street = ?, city = ?, district_id = ?, country_id = ?, v_card_id = ?, v_phone = ? WHERE visitor_id = ?">
