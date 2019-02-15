@@ -52,8 +52,12 @@ Public Class Global_asax
             MyConn.Close()
         End Try
 
-        If OpInt = ClInt Then
-            Return True
+        If OpInt <> 0 Then
+            If OpInt = ClInt Then
+                Return True
+            Else
+                Return False
+            End If
         Else
             Return False
         End If
@@ -88,8 +92,12 @@ Public Class Global_asax
             MyConn.Close()
         End Try
 
-        If OpInt = ClInt Then
-            Return True
+        If OpInt <> 0 Then
+            If OpInt = ClInt Then
+                Return True
+            Else
+                Return False
+            End If
         Else
             Return False
         End If
